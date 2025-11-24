@@ -29,4 +29,4 @@ jobs:
         run: pip install requests
 
       - name: Run Yandex Direct report script
-        run: python scripts/send_yandex_report.py
+        run: python send_yandex_report.py
