@@ -7,9 +7,12 @@ ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
 CLIENT_LOGIN = os.environ["CLIENT_LOGIN"]
 WEBHOOK_URL = os.environ["WEBHOOK_URL"]
 
-today = datetime.date.today()
-yesterday = today - datetime.timedelta(days=1)
-date_str = yesterday.strftime("%Y-%m-%d")
+if TEST_DATE:
+    date_str = TEST_DATE
+else:
+    today = datetime.date.today()
+    yesterday = today - datetime.timedelta(days=1)
+    date_str = yesterday.strftime("%Y-%m-%d")
 
 url = "https://api.direct.yandex.com/json/v5/reports"
 headers = {
