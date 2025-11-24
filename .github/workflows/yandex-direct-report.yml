@@ -1,0 +1,32 @@
+name: Yandex Direct Daily Report
+
+on:
+  schedule:
+    # GitHub работает по UTC.
+    # 10:00 по Москве (UTC+3) = 07:00 UTC
+    - cron: '0 7 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+
+    env:
+      ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      CLIENT_LOGIN: ${{ secrets.CLIENT_LOGIN }}
+      WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run Yandex Direct report script
+        run: python scripts/send_yandex_report.py
