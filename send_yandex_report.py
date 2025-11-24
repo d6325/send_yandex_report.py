@@ -3,9 +3,8 @@ import datetime
 import time
 import requests
 
-ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
-CLIENT_LOGIN = os.environ["CLIENT_LOGIN"]
-WEBHOOK_URL = os.environ["WEBHOOK_URL"]
+# ===== Параметры даты =====
+TEST_DATE = "2025-11-19"  # для теста; потом можно поставить None
 
 if TEST_DATE:
     date_str = TEST_DATE
