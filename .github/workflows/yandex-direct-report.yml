@@ -13,7 +13,7 @@ jobs:
 
     env:
       ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      CLIENT_LOGINS: ${{ secrets.CLIENT_LOGIN }}
+      CLIENT_LOGINS: ${{ secrets.CLIENT_LOGINS }}
       WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
 
     steps:
